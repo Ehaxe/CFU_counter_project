@@ -10,19 +10,19 @@ root = tk.Tk()
 
 canvas = tk.Canvas(root, height = HEIGHT, width = WIDTH)
 canvas.pack()
-# #eeedef
-frame = tk.Frame(root, bg="black", width=400, height=HEIGHT)
-frame.place(relheight=1, relwidth=1)
+# #eeedef 
+frame = tk.Frame(root, bg="black", width=400, height=HEIGHT) 
+frame.place(relheight=1, relwidth=1) 
 
-frame2 = tk.Frame(root, bg="blue")
-frame2.place(x=400, y=0, relwidth=1, relheight=1)
-
-
-
+frame2 = tk.Frame(root, bg="blue") 
+frame2.place(x=400, y=0, relwidth=1, relheight=1) 
+ 
+ 
+ 
 # function defining the file selection process
 def openFile():
-    tk.filedialog.askopenfile(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
-
+    tk.filedialog.askopenfile(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))) 
+     
 #def cfu_count():
     #define how to count spots with openCV
 

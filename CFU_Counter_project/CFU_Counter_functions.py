@@ -2,7 +2,7 @@
 import argparse
 import cv2 as cv
 import numpy as np
-#import imutils as im
+import imutils as im
 
 # getting arguement and parsing it
 parser = argparse.ArgumentParser()

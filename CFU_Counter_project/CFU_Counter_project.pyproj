@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>20d35568-50c6-40ce-822a-9194673ed26e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CFU_Counter_GUI_interface.py</StartupFile>
+    <StartupFile>CFU_Counter_functions.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,10 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CFU_Counter_GUI_interface.py" />
     <Compile Include="CFU_Counter_functions.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CFU_Counter_GUI_interface.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
