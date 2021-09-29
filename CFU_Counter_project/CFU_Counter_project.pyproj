@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>20d35568-50c6-40ce-822a-9194673ed26e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CFU_Counter_functions.py</StartupFile>
+    <StartupFile>CFU_Counter_main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
