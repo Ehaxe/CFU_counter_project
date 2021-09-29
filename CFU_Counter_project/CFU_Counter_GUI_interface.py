@@ -7,7 +7,7 @@ HEIGHT = 800
 WIDTH = 1200
 
 root = tk.Tk()
-
+root.title("")
 canvas = tk.Canvas(root, height = HEIGHT, width = WIDTH)
 canvas.pack()
 # #eeedef 
