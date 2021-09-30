@@ -14,9 +14,13 @@ class CFU_GUI(Frame):
         # creating the actual widgets from tkinter
         menubar = Menu(root)
         file_menu = Menu(menubar, tearoff=0)
-        file_menu.add_command(label="Select image", command=root.quit)
+        file_menu.add_command(label="Select image", command=openFile)
         file_menu.add_command(label="Exit", command=root.quit)
         file_menu.add_cascade(label="File", menu=file_menu)
+
+    # function defining the file selection process
+def openFile():
+    filedialog.askopenfile(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
 
 
 
