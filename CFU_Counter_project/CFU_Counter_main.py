@@ -72,7 +72,7 @@ class openCV():
         image_canvas = tk.Canvas(root, width = width, height = height)
         image_canvas.grid()
 
-        cv2.imshow(image_canvas, image_gray)
+        cv2.imshow("image_canvas", image_gray)
 
     def draw_polygon():
         pass
