@@ -3,8 +3,8 @@ import tkinter as tk
 import webbrowser
 import cv2
 import numpy as np
-import Image, ImageTk
-
+#import Image, ImageTk
+from tkinter import filedialog
 
 # initializing main loop
 root = tk.Tk()
@@ -32,7 +32,7 @@ class menuBar(tk.Frame):
 
         topBar = tk.Menu(root)
         firstMenu = tk.Menu(topBar, tearoff=0)
-        firstMenu.add_command(label="Open file:", command=root.quit)
+        firstMenu.add_command(label="Open image:", command=openCV.open_image)
         firstMenu.add_command(label="Exit", command=root.quit)
         topBar.add_cascade(label="File", menu=firstMenu)
 
@@ -56,10 +56,18 @@ class openCV():
 
 
     def open_image():
-        askopenfile(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
+        filedialog.askopenfile(initialdir = "/",title = "Select image",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
 
 
-    def 
+    def draw_polygon():
+        pass
+
+    def draw_rectangle():
+        pass
+    
+    def count_CFU():
+        pass
+
     
 app = menuBar(root)
 root.mainloop()
