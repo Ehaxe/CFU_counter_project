@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import PIL.Image, PIL.ImageTk
 from tkinter import filedialog
+import time
 
 # initializing main loop
 root = tk.Tk()
@@ -58,25 +59,35 @@ class openCV():
 
 
     def open_image():
-        img_orig = cv2.imread(filedialog.askopenfilename(initialdir = "/",title = "Select image",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))))
+        img_gray = cv2.imread(filedialog.askopenfilename(initialdir = "/",title = "Select image",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))))
         #if len(img_orig) > 0:
             #print ("yes")
             #print ("image loaded")   
-        img_gray = cv2.cvtColor(img_orig, cv2.COLOR_BGR2GRAY)
+       #img_gray = cv2.cvtColor(img_orig, cv2.COLOR_BGR2GRAY)
         
         #store image as variable and get dimensions
         height = img_gray.shape[0]
         width = img_gray.shape[1]
         print (height, width)
-        
+        gheight = height+2
+        gwidth = width+2
+        geometry = str(gwidth)+"x"+str(gheight)
+        root.geometry(geometry)
+
         # convert to Pillow
+        time.sleep (2)
         Pil_img = PIL.Image.fromarray(img_gray)
+        time.sleep (2)
         TK_img = PIL.ImageTk.PhotoImage(image=Pil_img)
+        time.sleep (2)
         # create canvas to frame image
-        img_canvas = tk.Canvas(master=root, width = width, height = height)
-        img_canvas.grid()
-        img_canvas.create_image(0,0, image=TK_img)
-        #cv2.imshow("image_canvas", image_gray)
+        img_canvas = tk.Canvas(root, width = width, height = height)
+        #time.sleep (1)
+        img_canvas.grid(row=1)
+        #cv2.waitKey(2)
+        img_canvas.create_image(0,0, image=TK_img, anchor=tk.NW)
+        #cv2.waitKey(2)
+        #cv2.imshow("image_canvas", img_gray)
 
     def draw_polygon():
         pass
