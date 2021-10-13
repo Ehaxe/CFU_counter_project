@@ -10,8 +10,8 @@ import time
 # initializing main loop
 root = tk.Tk()
 root.title("CFU Counter")
-#root.geometry("1200x1200")
-#root.resizable(width=False, height=False)
+root.geometry("200x100")
+root.resizable(width=False, height=False)
 
 
 
@@ -59,35 +59,42 @@ class openCV():
 
 
     def open_image():
-        img_gray = cv2.imread(filedialog.askopenfilename(initialdir = "/",title = "Select image",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))))
-        #if len(img_orig) > 0:
-            #print ("yes")
-            #print ("image loaded")   
-       #img_gray = cv2.cvtColor(img_orig, cv2.COLOR_BGR2GRAY)
+        img_orig = cv2.imread(filedialog.askopenfilename(initialdir = "/",title = "Select image",filetypes = (("jpeg files","*.jpg"),("all files","*.*"))))
+        if len(img_orig) > 0:
+            print ("yes")
+            print ("image loaded")   
+            img_gray = cv2.cvtColor(img_orig, cv2.COLOR_BGR2GRAY)
         
-        #store image as variable and get dimensions
-        height = img_gray.shape[0]
-        width = img_gray.shape[1]
-        print (height, width)
-        gheight = height+2
-        gwidth = width+2
-        geometry = str(gwidth)+"x"+str(gheight)
-        root.geometry(geometry)
+            detector = cv2.SimpleBlobDetector_create()
+            keypoints = detector.detect(img_gray)
+            img_with_keypoints = cv2.drawKeypoints(img_gray, keypoints, np.array([]), (0,0,255),cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
 
-        # convert to Pillow
-        time.sleep (2)
-        Pil_img = PIL.Image.fromarray(img_gray)
-        time.sleep (2)
-        TK_img = PIL.ImageTk.PhotoImage(image=Pil_img)
-        time.sleep (2)
-        # create canvas to frame image
-        img_canvas = tk.Canvas(root, width = width, height = height)
-        #time.sleep (1)
-        img_canvas.grid(row=1)
-        #cv2.waitKey(2)
-        img_canvas.create_image(0,0, image=TK_img, anchor=tk.NW)
-        #cv2.waitKey(2)
-        #cv2.imshow("image_canvas", img_gray)
+            # store image as variable and get dimensions
+            height = img_gray.shape[0]
+            width = img_gray.shape[1]
+            print (height, width)
+            # add extra spacing around edge
+            gheight = height+2
+            gwidth = width+2
+            # dynamically set root window dimensions
+            geometry = str(gwidth)+"x"+str(gheight)
+            root.geometry(geometry)
+
+            # define TK_img as global variable to prevent garbage collection
+            global TK_img
+            # convert to Pillow      
+            Pil_img = PIL.Image.fromarray(img_gray)        
+            TK_img = PIL.ImageTk.PhotoImage(image=Pil_img)        
+            # create canvas to frame image and place image within canvas
+            img_canvas = tk.Canvas(root, width = width, height = height, bg="black")              
+            img_canvas.create_image(0,0, image=TK_img, anchor=tk.NW)
+            img_canvas.grid(row=1)
+        
+        
+            # opencv image show to compare to pillow
+            cv2.imshow("image_canvas", img_with_keypoints)
+        else:
+            return
 
     def draw_polygon():
         pass
