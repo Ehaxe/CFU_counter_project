@@ -115,9 +115,9 @@ class openCV():
         # opencv image show to compare to pillow
         cv2.imshow("image_canvas", img_with_keypoints)
         print (len(keypoints))        
-        Pil_img = PIL.Image.fromarray(img_with_keypoints)        
-        TK_circle_img = PIL.ImageTk.PhotoImage(image=Pil_img)
-        img_canvas.itemconfigure(img_canvas,image=TK_circle_img)
+        Pil_circle_img = PIL.Image.fromarray(img_with_keypoints)        
+        TK_circle_img = PIL.ImageTk.PhotoImage(image=Pil_circle_img)
+        #img_canvas.itemconfigure(img_canvas,image=TK_circle_img)
 
         # create and display CFU count values
         colony_count = "Number of colonies: "+str(len(keypoints))
