@@ -24,7 +24,6 @@
     <Compile Include="CFU_Counter_functions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CFU_Counter_GUI_interface.py" />
     <Compile Include="CFU_GUI_class.py">
       <SubType>Code</SubType>
     </Compile>
