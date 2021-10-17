@@ -35,8 +35,6 @@ class menuBar(tk.Frame):
         topBar.add_cascade(label="File", menu=firstMenu)
         # second drop-dwon menu
         secondMenu = tk.Menu(topBar, tearoff=0)
-        #secondMenu.add_command(label="Set area (rectangle):", command=openCV.draw_rectangle)
-        #secondMenu.add_command(label="Set area (polygon):", command=root.quit)
         secondMenu.add_command(label="Count Colonies:", command=openCV.count_CFU)
         topBar.add_cascade(label="Processing", menu=secondMenu)
         # third drop-dwon menu
@@ -56,7 +54,7 @@ class menuBar(tk.Frame):
         root.geometry(geometry)
 
         # define TK_img as global variable to prevent garbage collection
-        global TK_img
+        global TK_img_start
         global canvas
         global img_canvas
         # convert to Pillow      
@@ -94,7 +92,7 @@ class openCV():
         # convert to Pillow      
         Pil_img = PIL.Image.fromarray(img_gray)        
         TK_img = PIL.ImageTk.PhotoImage(image=Pil_img)        
-        # create canvas to frame image and place image within canvas
+        # swap out image in canvas and set dimensions dynamically
         canvas.itemconfigure(img_canvas,image=TK_img)
         canvas.config(height = gheight, width = gwidth)
 
@@ -120,7 +118,7 @@ class openCV():
         # set up actual blob detector and draw them on image
         detector = cv2.SimpleBlobDetector_create(params)
         keypoints = detector.detect(img_gray)
-        img_with_keypoints = cv2.drawKeypoints(img_gray, keypoints, np.array([]), (0,0,255),cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+        img_with_keypoints = cv2.drawKeypoints(img_gray, keypoints, np.array([]), (255,0,0),cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         
         # read in image with circles and swap out image to canvas
         Pil_circle_img = PIL.Image.fromarray(img_with_keypoints)
