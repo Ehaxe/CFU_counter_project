@@ -28,16 +28,16 @@ class menuBar(tk.Frame):
     def menu_widget(self):
         # defining topbar menu
         topBar = tk.Menu(root)
-        # first drop-dwon menu
+        # first drop-down menu
         firstMenu = tk.Menu(topBar, tearoff=0)
         firstMenu.add_command(label="Open image:", command=openCV.open_image)
         firstMenu.add_command(label="Exit", command=root.quit)
         topBar.add_cascade(label="File", menu=firstMenu)
-        # second drop-dwon menu
+        # second drop-down menu
         secondMenu = tk.Menu(topBar, tearoff=0)
         secondMenu.add_command(label="Count Colonies:", command=openCV.count_CFU)
         topBar.add_cascade(label="Processing", menu=secondMenu)
-        # third drop-dwon menu
+        # third drop-down menu
         thirdMenu = tk.Menu(topBar, tearoff=0)
         thirdMenu.add_command(label="ReadMe Online", command=self.openURL)
         topBar.add_cascade(label="Help", menu=thirdMenu)
