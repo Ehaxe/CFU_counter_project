@@ -9,7 +9,9 @@
 ### Introduction H3
 A graphical interface program for identifying and counting colonies on from a jpg file
 
-#### Necessary packages H4
+#### Necessary packages and development and test environment H4
+tested on python version; 3.9.7
+tested on windows 10, PC
 required packages are:
 	numpy
 	Pillow
@@ -20,10 +22,11 @@ required packages are:
 ##### How to run the program H5
 
 Install necessary packages
-
+Ensure the python version matches 3.9.7
 Launch the CFU_Counter_main.py file
 From the file menu select: open image to load an image
 from Processing menu, select Count colonies, to count detected colonies
+from Help menu, click ReadMe Online to be directed to the readme file in the github repository
 
 ###### Adjusting parameters for cell detection H6
 
